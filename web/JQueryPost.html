@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.3.1.js"></script>
+    <script>
+
+        //定义方法
+        function fun() {
+            $.post("ajaxServlet",{username:"xiaoli"},function (data) {
+                alert(data)
+            },"text");//默认文本，可不写。但不默认要写
+
+        }
+    </script>
+</head>
+<body>
+
+<input type="button" value="发送异步请求" onclick="fun();">
+<input>
+</body>
+</html>

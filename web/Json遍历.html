@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //先基本语法
+            //定义基本格式
+        var person = {"name":"张三","age":23,"Gender":true};//格式注意，要双引都双引，单引都单，不加都不加 语法要统一
+
+        var ps = [
+            {"name":"张三","age":23,"Gender":true},//1
+            {"name":"李四","age":25,"Gender":true},//2
+            {"name":"王五","age":18,"Gender":false}//3
+        ]
+        //数组获取李四的值
+        // alert(ps[1].name);
+
+        //获取person对象中所有的键和值
+        //for in循环
+        // for(var key in person){//拿到了每个键的名称
+        //     // alert(key);
+        //    // alert(key +":"+ person.key);            //这样的方式获取不行，相当于 person."name"
+        //     alert(key +":"+person[key]);
+        // }
+        //获取到ps中的所有值
+        for(var i=0;i<ps.length;i++){
+            var p =ps[i];//相当于拿到了每个对象，例如ps中的备注 1，2,3 这里有三个
+            for(var key in p){//针对p代表着里面每一组对象，现在要遍历每一组对象里面的内容
+                alert(key + ":"+ p[key]);//然后就能拿到里面的9个值
+            }
+            // alert();
+        }
+    </script>
+</head>
+<body>
+
+</body>
+</html>

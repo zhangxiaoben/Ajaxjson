@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        //定义方法 这个方法不需要记文档上写的很清楚，参考http://www.w3school.com.cn/ajax/ajax_xmlhttprequest_create.asp
+        function fun() {
+            //发送异步请求1123
+            //1.创建核心对象
+            // alert(1);
+            var xmlhttp;
+            if (window.XMLHttpRequest)
+            {// code for IE7+, Firefox, Chrome, Opera, Safari
+                xmlhttp=new XMLHttpRequest();
+            }
+            else
+            {// code for IE6, IE5
+                xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+            }
+            //2.(建立连接)
+            /*
+                参数：
+                    1.请求方式GET,POST
+                        *get方式：请求方式在URL后边拼接，send方法为空参
+                        *post方式：请求参数在send方法中定义：
+                        * post xmlhttp.open("POST","ajaxServlet",true); xmlhttp.send("username=tom");
+                        * postopen里就不需要再拼参数了
+
+                    2.请求URL
+                    3.同步异步请求：async：true（异步）或 false（同步）
+
+             */
+            // xmlhttp.open("GET","test1.txt",true);
+            xmlhttp.open("GET","ajaxServlet?username=tom",true);
+            //发送请求
+            xmlhttp.send();
+
+            ///4.接受并处理来自服务器的请求结果
+            //获取方式xmlhttp.responseText
+            // document.getElementById("myDiv").innerHTML=xmlhttp.responseText;
+            //什么时候获取呢？当服务器响应成功后获取
+            //当xmlhttp的对象状态改变时，会触发事件onreadystatechange 会执行function()这个监听器函数也叫监听器方法
+            xmlhttp.onreadystatechange=function()
+            {
+                //判断就绪状态是否为4 文档里都有 w3c   并且判断状态吗是否为200
+                if (xmlhttp.readyState==4 && xmlhttp.status==200)
+                {
+                    //获取服务器的响应结果
+                    var responseText=xmlhttp.responseText;
+                    alert(responseText);
+                }
+            }
+
+        }
+    </script>
+</head>
+<body>
+
+<input type="button" value="发送异步请求" onclick="fun();">
+<input>
+</body>
+</html>
