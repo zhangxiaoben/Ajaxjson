@@ -10,7 +10,7 @@
             //给username绑定blur事件
             $("#username").blur(function () {
                 //获取这个username文本输入框的值
-                var username = $(this.value).val();
+                var username = $(this).val();
                 //发送ajax请求
                 //期望服务器响应回的数据格式：{"userExsit":true,"msg":"此用户名太受欢迎,请更换一个"
                 //------------------------：{"userExsit":false,"msg":"用户名可用"
