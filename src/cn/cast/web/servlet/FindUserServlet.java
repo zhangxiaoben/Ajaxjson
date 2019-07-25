@@ -24,7 +24,7 @@ public class FindUserServlet extends HttpServlet {
 
         //期望服务器响应回的数据格式：{"userExsit":true,"msg":"此用户名太受欢迎,请更换一个"
         //------------------------：{"userExsit":false,"msg":"用户名可用"
-        response.setContentType("text/html;charset=utf-8");
+        response.setContentType("application/json;charset=utf-8");//在tomcat-conf-web.xml中搜索json看是什么格式的
         Map<String,Object> map = new HashMap<String, Object>();//泛型后面的可以补全
 
         //2.查询数据库（调用service层，（service再去dao查询数据库））
